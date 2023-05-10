@@ -231,6 +231,27 @@ paths:
             description: ''
         tags:
         - api
+  
+    /api/users/{id}/delete/:
+      delete:
+        operationId: Удалить из друзей
+        description: Удалить определенного пользователя из друзей
+        parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id пользователя, которого нужно удалить
+          schema:
+            type: string
+        responses:
+          '204':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Status'
+            description: ''
+        tags:
+        - api
 
 components:
   schemas:
