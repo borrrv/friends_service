@@ -28,7 +28,7 @@ paths:
                     auth_token:
                       type: string
         tags:
-          - auth
+          - api
     /api/users/:
       get:
         operationId: Список пользователей

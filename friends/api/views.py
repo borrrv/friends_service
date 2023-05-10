@@ -9,20 +9,20 @@ from rest_framework.status import (HTTP_200_OK, HTTP_204_NO_CONTENT,
 from users.models import Friends, User
 
 from .filters import get_friends
-from .serializers import (CustomUserSerializer, IncomingSerializer,
+from .serializers import (CurrentCustomSerializer, IncomingSerializer,
                           OfferSerializer, OutgoingSerializer)
 
 
 class CustomUserViewSet(UserViewSet):
     queryset = User.objects.all()
-    serializer_class = CustomUserSerializer
+    serializer_class = CurrentCustomSerializer
 
     @action(detail=True, methods=['POST'])
     def offer(self, request, id):
         """Добавление в друзья"""
         user_from = self.request.user
         user_to = get_object_or_404(User, id=id)
-        serializer = CustomUserSerializer
+        serializer = CurrentCustomSerializer
         repeat = Friends.objects.filter(
             user_from_id=user_from.id,
             user_to_id=user_to.id)
