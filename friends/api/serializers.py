@@ -24,17 +24,6 @@ class CurrentCustomSerializer(serializers.ModelSerializer):
         return get_friends(self, user)
 
 
-class CustomUserSerializer(serializers.ModelSerializer):
-    """Кастомный сериалайзер пользователя"""
-
-    class Meta:
-        model = User
-        fields = (
-            'id',
-            'username',
-        )
-
-
 class OfferSerializer(serializers.ModelSerializer):
     """Сериалайзер для добавления пользователя в друзья"""
 
